@@ -6,3 +6,6 @@
 
 # Scratch
 .scratch
+
+# Rust
+rust/*/target/*
