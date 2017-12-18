@@ -52,9 +52,7 @@ impl Node {
 
 fn main() {
 
-    let contents: String = open_file_read_contents();
-
-    let tree_nodes: Vec<Node> = contents.lines().map(|line| {
+    let tree_nodes: Vec<Node> = open_file_read_contents().lines().map(|line| {
         Node {
             parent: Node::parse_node_parent(line),
             weight: Node::parse_node_weight(line),
