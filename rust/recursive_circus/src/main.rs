@@ -29,24 +29,17 @@ fn main() {
 }
 
 fn find_tree_root(tree_vec: &Vec<Node>) -> String {
-    let root_const: String = String::from("ROOT");
     let mut start: String = match tree_vec.iter().cloned().nth(0) {
         Some(n) => n.parent,
         None => panic!("FAILURE : EMPTY FOREST"),
     };
 
     loop {
-        let next_node: String = match tree_vec.iter().cloned()
+        match tree_vec.iter().cloned()
             .filter(|n| n.children.contains(&start))
             .map(|n| n.parent).next() {
-                Some(p) => p,
-                None => root_const.clone(),
-        };
-
-        if next_node != root_const {
-            start = next_node;
-        } else {
-            break start;
+                Some(p) => start = p,
+                None => break start,
         }
     }
 }
