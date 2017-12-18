@@ -15,7 +15,7 @@ fn main() {
 
     let contents: String = open_file_read_contents();
 
-    let forest: Vec<Node> = contents.lines().map(|line| {
+    let tree_nodes: Vec<Node> = contents.lines().map(|line| {
         Node {
             parent: parse_node_parent(line),
             weight: parse_node_weight(line),
@@ -23,19 +23,19 @@ fn main() {
         }
     }).collect();
 
-    let tree_root: String = find_tree_root(&forest);
+    let tree_root: String = find_tree_root(&tree_nodes);
     println!("TREE ROOT: {:?}", &tree_root);
 
 }
 
-fn find_tree_root(tree_vec: &Vec<Node>) -> String {
-    let mut start: String = match tree_vec.iter().cloned().nth(0) {
+fn find_tree_root(tree_nodes: &Vec<Node>) -> String {
+    let mut start: String = match tree_nodes.iter().cloned().nth(0) {
         Some(n) => n.parent,
         None => panic!("FAILURE : EMPTY FOREST"),
     };
 
     loop {
-        match tree_vec.iter().cloned()
+        match tree_nodes.iter().cloned()
             .filter(|n| n.children.contains(&start))
             .map(|n| n.parent).next() {
                 Some(p) => start = p,
