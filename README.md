@@ -3,10 +3,17 @@ Advent Of Code
 
 See [Advent Of Code](http://adventofcode.com)
 
+### Rust Solutions
+
+- [ ] [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7)
+  - Solution - Part 1: [Recursive Circus](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
+
+Note: Very new to Rust, I welcome feedback.
+
 ### Haskell Solutions
 
 - [x] [Day 1: Inverse Captcha](http://adventofcode.com/2017/day/1)
-  - Solution: [Inverse Captcha](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/inverse_captcha) 
+  - Solution: [Inverse Captcha](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/inverse_captcha)
 
 - [x] [Day 2: Corruption Checksum](http://adventofcode.com/2017/day/2)
   - Solution: [Corruption Checksum](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/corruption_checksum)
@@ -23,8 +30,6 @@ Note: Very new to Haskell, I welcome feedback.
 - [ ] [Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5)
 
 - [ ] [Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6)
-
-- [ ] [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7)
 
 - [ ] [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8)
 
