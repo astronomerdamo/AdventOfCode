@@ -1,10 +1,11 @@
 use std::fs;
 use std::env;
 use std::io::Read;
-// use std::collections::HashSet;
+use std::collections::HashMap;
 // use std::iter::FromIterator;
 
 #[derive(Clone)]
+#[derive(Debug)]
 struct Node {
     parent: String,
     weight: u32,
@@ -12,20 +13,13 @@ struct Node {
 }
 
 impl Node {
-    fn find_tree_root(tree_nodes: &Vec<Node>) -> String {
-        let mut start: String = match tree_nodes.iter().cloned().nth(0) {
-            Some(n) => n.parent,
-            None => panic!("FAILURE : EMPTY TREE NODE VECTOR"),
-        };
-
-        loop {
-            match tree_nodes.iter().cloned()
-                .filter(|n| n.children.contains(&start))
-                .map(|n| n.parent).next() {
-                    Some(p) => start = p,
-                    None => break start,
+    fn find_tree_root(tree: &HashMap<String, Node>) -> String {
+        match tree.keys().cloned()
+            .filter(|k| !tree.values().any(|n| n.children.contains(k)))
+            .next() {
+                Some(r) => r,
+                None => panic!("FAILURE : NO TREE ROOT"),
             }
-        }
     }
 
     fn parse_node_parent(line: &str) -> String {
@@ -52,15 +46,17 @@ impl Node {
 
 fn main() {
 
-    let tree_nodes: Vec<Node> = open_file_read_contents().lines().map(|line| {
-        Node {
-            parent: Node::parse_node_parent(line),
-            weight: Node::parse_node_weight(line),
-            children: Node::parse_node_children(line),
-        }
-    }).collect();
+    let tree: HashMap<String, Node> = open_file_read_contents()
+        .lines().map(|line| {(
+            Node::parse_node_parent(line),
+            Node {
+                parent: Node::parse_node_parent(line),
+                weight: Node::parse_node_weight(line),
+                children: Node::parse_node_children(line),
+            })
+        }).collect();
 
-    let tree_root: String = Node::find_tree_root(&tree_nodes);
+    let tree_root: String = Node::find_tree_root(&tree);
     println!("TREE ROOT: {:?}", &tree_root);
 
 }
