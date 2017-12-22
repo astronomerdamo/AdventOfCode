@@ -5,8 +5,8 @@ See [Advent Of Code](http://adventofcode.com)
 
 ### Rust Solutions
 
-- [ ] [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7)
-  - Solution - Part 1: [Recursive Circus](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
+- [x] [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7)
+  - Solution: [Recursive Circus](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
 
 Note: Very new to Rust, I welcome feedback.
 
