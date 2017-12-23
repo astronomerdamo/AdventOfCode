@@ -4,21 +4,28 @@ use std::io::Read;
 
 fn main() {
 
-    let mut instructions = parse_instructions();
-    
-    let min_length: i32 = 0;
-    let max_length: i32 = safely_parse_usize_to_i32(instructions.len());
+    let instructions = parse_instructions();
+    let instructions_min_length: i32 = 0;
+    let instructions_max_length: i32 = safely_parse_usize_to_i32(
+        instructions.len()
+    );
+
+    // Part A
+    find_steps_to_exit_normal(&instructions, &instructions_min_length, &instructions_max_length);
+
+    // Part B
+    find_steps_to_exit_abnormal(&instructions, &instructions_min_length, &instructions_max_length);
+}
+
+fn find_steps_to_exit_normal(instructions: &Vec<i32>, i_min: &i32, i_max: &i32) -> () {
+    let mut fn_instructions: Vec<i32> = instructions.clone();
     let mut n: i32 = 0;
     let mut s: u32 = 0;
 
-    while n >= min_length && n < max_length {
+    while n >= i_min.clone() && n < i_max.clone() {
 
-        let instruction = match instructions.get_mut(n as usize) {
-            Some(element) => {
-                // left in for debugging
-                // println!("{:?}", element);
-                element
-            },
+        let instruction = match fn_instructions.get_mut(n as usize) {
+            Some(element) => element,
             None => panic!("FAILURE : INSTRUCTION INDEX OUT OF RANGE"),
         };
 
@@ -28,8 +35,32 @@ fn main() {
         s += 1;
     }
 
-    println!("Steps: {:?}", s);
+    println!("Normal Steps to Exit: {:?}", s);
+}
 
+fn find_steps_to_exit_abnormal(instructions: &Vec<i32>, i_min: &i32, i_max: &i32) -> () {
+    let mut fn_instructions: Vec<i32> = instructions.clone();
+    let mut n: i32 = 0;
+    let mut s: u32 = 0;
+
+    while n >= i_min.clone() && n < i_max.clone() {
+
+        let instruction = match fn_instructions.get_mut(n as usize) {
+            Some(element) => element,
+            None => panic!("FAILURE : INSTRUCTION INDEX OUT OF RANGE"),
+        };
+
+        n += *instruction;
+        *instruction += if *instruction >= 3 {
+            -1
+        } else {
+            1
+        };
+
+        s += 1;
+    }
+
+    println!("Abnormal Steps to Exit: {:?}", s);
 }
 
 fn safely_parse_usize_to_i32(n :usize) -> i32 {
@@ -66,4 +97,3 @@ fn open_file_read_contents() -> String {
     };
     buffer
 }
-
