@@ -5,9 +5,9 @@ use std::io::Read;
 fn main() {
 
     let mut instructions = parse_instructions();
-
+    
     let min_length: i32 = 0;
-    let max_length: i32 = instructions.len() as i32;
+    let max_length: i32 = safely_parse_usize_to_i32(instructions.len());
     let mut n: i32 = 0;
     let mut s: u32 = 0;
 
@@ -19,7 +19,7 @@ fn main() {
                 // println!("{:?}", element);
                 element
             },
-            None => panic!("OUT OF FUCKING RANGE"),
+            None => panic!("FAILURE : INSTRUCTION INDEX OUT OF RANGE"),
         };
 
         n += *instruction;
@@ -30,6 +30,15 @@ fn main() {
 
     println!("Steps: {:?}", s);
 
+}
+
+fn safely_parse_usize_to_i32(n :usize) -> i32 {
+    // I should be able to do this with generics
+    if n < std::i32::MAX as usize {
+        n as i32
+    } else {
+        panic!("FAILURE : CANNOT SAFELY CONVERT TYPE")
+    }
 }
 
 fn parse_instructions() -> Vec<i32> {
