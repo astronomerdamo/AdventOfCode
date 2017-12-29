@@ -1,0 +1,6 @@
+[package]
+name = "memory_reallocation"
+version = "0.1.0"
+authors = ["Damien Robertson <robertsondamien@gmail.com>"]
+
+[dependencies]
