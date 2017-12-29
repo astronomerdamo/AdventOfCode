@@ -8,6 +8,9 @@ See [Advent Of Code](http://adventofcode.com)
 - [x] [Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5)
   - Solution: [Twisty Trampoline](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/twisty_trampolines)
 
+- [x] [Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6)
+  - Solution: [Memory Reallocation](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/memory_reallocation)
+
 - [x] [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7)
   - Solution: [Recursive Circus](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
 
@@ -29,8 +32,6 @@ Note: I am very new to Haskell, I welcome feedback.
 ### Unfinished
 
 - [ ] [Day 3: Spiral Memory](http://adventofcode.com/2017/day/3)
-
-- [ ] [Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6)
 
 - [ ] [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8)
 
