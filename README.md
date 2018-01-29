@@ -25,7 +25,7 @@ Note: I am very new to Rust, I welcome feedback.
   - Solution: [Corruption Checksum](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/corruption_checksum)
 
 - [ ] [Day 3: Spiral Memory](http://adventofcode.com/2017/day/3)
-  - Solution: Part 1 [Spiral Memory](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/spiral_memory)
+  - Solution: [Spiral Memory](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/spiral_memory)
 
 - [x] [Day 4: High-Entropy Passphrases](http://adventofcode.com/2017/day/4)
   - Solution: [High-Entropy Passphrases](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/high_entropy_passphrases)
