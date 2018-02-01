@@ -11,13 +11,15 @@ fn main() {
     );
 
     // Part A
-    find_steps_to_exit_normal(&instructions, &instructions_min_length, &instructions_max_length);
+    let snorm: u32 = find_steps_to_exit_normal(&instructions, &instructions_min_length, &instructions_max_length);
+    println!("Normal Steps to Exit: {:?}", snorm);
 
     // Part B
-    find_steps_to_exit_abnormal(&instructions, &instructions_min_length, &instructions_max_length);
+    let sabn: u32 = find_steps_to_exit_abnormal(&instructions, &instructions_min_length, &instructions_max_length);
+    println!("Abnormal Steps to Exit: {:?}", sabn);
 }
 
-fn find_steps_to_exit_normal(instructions: &[i32], i_min: &i32, i_max: &i32) -> () {
+fn find_steps_to_exit_normal(instructions: &[i32], i_min: &i32, i_max: &i32) -> (u32) {
     let mut fn_instructions: Vec<i32> = instructions.to_owned();
     let mut n: i32 = 0;
     let mut s: u32 = 0;
@@ -35,10 +37,10 @@ fn find_steps_to_exit_normal(instructions: &[i32], i_min: &i32, i_max: &i32) -> 
         s += 1;
     }
 
-    println!("Normal Steps to Exit: {:?}", s);
+    s
 }
 
-fn find_steps_to_exit_abnormal(instructions: &[i32], i_min: &i32, i_max: &i32) -> () {
+fn find_steps_to_exit_abnormal(instructions: &[i32], i_min: &i32, i_max: &i32) -> (u32) {
     let mut fn_instructions: Vec<i32> = instructions.to_owned();
     let mut n: i32 = 0;
     let mut s: u32 = 0;
@@ -60,7 +62,7 @@ fn find_steps_to_exit_abnormal(instructions: &[i32], i_min: &i32, i_max: &i32) -
         s += 1;
     }
 
-    println!("Abnormal Steps to Exit: {:?}", s);
+    s
 }
 
 fn safely_parse_usize_to_i32(n :usize) -> i32 {
@@ -96,4 +98,47 @@ fn open_file_read_contents() -> String {
         Err(e) => panic!("FAILURE : READ FILE {}", e),
     };
     buffer
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn safely_convert_usize() {
+        let test_n: usize = 42;
+        let expected_n: i32 = 42;
+        assert_eq!(safely_parse_usize_to_i32(test_n), expected_n);
+    }
+
+    #[test]
+    #[should_panic]
+    fn panic_convert_usize() {
+        let test_n: usize = std::i32::MAX as usize + 1;
+        safely_parse_usize_to_i32(test_n);
+    }
+
+    #[test]
+    fn test_find_steps_to_exit_normal() {
+        let test_instr: [i32; 5] = [0, 3, 0, 1, -3];
+        let test_instr_min_length: i32 = 0;
+        let test_instr_max_length: i32 = 5;
+        let expected = 5;
+        assert_eq!(
+            find_steps_to_exit_normal(&test_instr, &test_instr_min_length, &test_instr_max_length),
+            expected
+        )
+    }
+
+    #[test]
+    fn test_find_steps_to_exit_abnormal() {
+        let test_instr: [i32; 5] = [0, 3, 0, 1, -3];
+        let test_instr_min_length: i32 = 0;
+        let test_instr_max_length: i32 = 5;
+        let expected = 10;
+        assert_eq!(
+            find_steps_to_exit_abnormal(&test_instr, &test_instr_min_length, &test_instr_max_length),
+            expected
+        )
+    }
 }
