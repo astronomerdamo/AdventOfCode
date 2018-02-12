@@ -111,10 +111,8 @@ fn get_instruction(instructions: &[Instruction], i: &usize) -> Instruction {
 
 fn evaluate_predicate(registers: &mut HashMap<String, i64>, instruction: &Instruction) -> bool {
     let operator = instruction.predicate_operator.as_str();
-    // let predicate_actor = instruction.predicate_actor.to_owned();
     let predicate_argument = instruction.predicate_argument;
     let predicate_actor = registers.entry(instruction.predicate_actor.to_owned()).or_insert(0).to_owned();
-    // let x = tmp.what_is_this();
     let predicate: bool = match operator {
         "==" => predicate_actor == predicate_argument,
         "!=" => predicate_actor != predicate_argument,
