@@ -15,7 +15,7 @@ See [Advent Of Code](http://adventofcode.com)
   - Solution: [Recursive Circus](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
 
 - [x] [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8)
-  - Solution [Registers](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/registers)
+  - Solution: [Registers](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/registers)
 
 Note: I am very new to Rust, I welcome feedback.
 
