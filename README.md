@@ -14,6 +14,9 @@ See [Advent Of Code](http://adventofcode.com)
 - [x] [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7)
   - Solution: [Recursive Circus](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
 
+- [x] [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8)
+  - Solution: [Registers](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/registers)
+
 Note: I am very new to Rust, I welcome feedback.
 
 ### Haskell Solutions
@@ -33,7 +36,5 @@ Note: I am very new to Rust, I welcome feedback.
 Note: I am very new to Haskell, I welcome feedback.
 
 ### Unfinished
-
-- [ ] [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8)
 
 - [ ] [Day 9: Stream Processing](http://adventofcode.com/2017/day/9)
