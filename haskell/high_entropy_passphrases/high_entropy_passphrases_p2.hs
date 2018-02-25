@@ -7,7 +7,6 @@ decompsort x = [[sort b | b <- a] | a <- map words (lines x)]
 
 main = do
   args <- getArgs
-  infile <- openFile (head args) ReadMode
-  contents <- hGetContents infile
+  contents <- readFile $ head args
   print
     (length [x | x <- decompsort contents, length x == length (nub x)])

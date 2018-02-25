@@ -7,7 +7,6 @@ decomp x = map words (lines x)
 
 main = do
   args <- getArgs
-  infile <- openFile (head args) ReadMode
-  contents <- hGetContents infile
+  contents <- readFile $ head args
   print
     (length [x | x <- decomp contents, length x == length (nub x)])
