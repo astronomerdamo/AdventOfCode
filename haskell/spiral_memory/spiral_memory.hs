@@ -38,7 +38,7 @@ crec :: ((Int, Int), Int) -> ((Int, Int), Int)
 crec ((_,_),1) = ((0,0),1)
 crec ((x,y),n) = (zip x y !! (n - 1 - lring n ^ 2), n)
     where coords = rcoords $ nring n
-          x = drop (2*(nring n)) coords ++ take (2*(nring n)) coords
+          x = drop (2 * nring n) coords ++ take (2 * nring n) coords
           y = coords
 
 -- | Part B Solution
@@ -53,7 +53,7 @@ csrec (tk, v) acc =
 main = do
   args <- getArgs
   let n = read . head $ args :: Int
-  let alist = map crec $ map (\x -> ((0,0),x)) [1..n]
+  let alist = map (crec . (\x -> ((0,0),x))) [1..n]
   -- Find the manhatten distance
   printf "Manhattan Distance: %d\n" (mdistalist alist)
   let salist = takeWhile (\(k,v) -> v < (n + n `div` 2)) . reverse . foldr csrec [((0,0),1)] $ reverse (drop 1 alist)
