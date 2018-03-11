@@ -35,6 +35,8 @@ Note: I am very new to Rust, I welcome feedback.
 
 Note: I am very new to Haskell, I welcome feedback.
 
-### Unfinished
+### Scala Solutions
 
-- [ ] [Day 9: Stream Processing](http://adventofcode.com/2017/day/9)
+- [x] [Day 9: Stream Processing](http://adventofcode.com/2017/day/9)
+  - Solution: [Stream Processing](https://github.com/astronomerdamo/AdventOfCode/tree/master/scala/stream_processing)
+
