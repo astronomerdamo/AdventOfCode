@@ -3,19 +3,24 @@ use std::env;
 use std::io::Read;
 
 fn main() {
-
     let instructions = parse_instructions();
     let instructions_min_length: i32 = 0;
-    let instructions_max_length: i32 = safely_parse_usize_to_i32(
-        instructions.len()
-    );
+    let instructions_max_length: i32 = safely_parse_usize_to_i32(instructions.len());
 
     // Part A
-    let snorm: u32 = find_steps_to_exit_normal(&instructions, &instructions_min_length, &instructions_max_length);
+    let snorm: u32 = find_steps_to_exit_normal(
+        &instructions,
+        &instructions_min_length,
+        &instructions_max_length,
+    );
     println!("Normal Steps to Exit: {:?}", snorm);
 
     // Part B
-    let sabn: u32 = find_steps_to_exit_abnormal(&instructions, &instructions_min_length, &instructions_max_length);
+    let sabn: u32 = find_steps_to_exit_abnormal(
+        &instructions,
+        &instructions_min_length,
+        &instructions_max_length,
+    );
     println!("Abnormal Steps to Exit: {:?}", sabn);
 }
 
@@ -25,7 +30,6 @@ fn find_steps_to_exit_normal(instructions: &[i32], i_min: &i32, i_max: &i32) -> 
     let mut s: u32 = 0;
 
     while n >= *i_min && n < *i_max {
-
         let instruction = match fn_instructions.get_mut(n as usize) {
             Some(element) => element,
             None => panic!("FAILURE : INSTRUCTION INDEX OUT OF RANGE"),
@@ -46,18 +50,13 @@ fn find_steps_to_exit_abnormal(instructions: &[i32], i_min: &i32, i_max: &i32) -
     let mut s: u32 = 0;
 
     while n >= *i_min && n < *i_max {
-
         let instruction = match fn_instructions.get_mut(n as usize) {
             Some(element) => element,
             None => panic!("FAILURE : INSTRUCTION INDEX OUT OF RANGE"),
         };
 
         n += *instruction;
-        *instruction += if *instruction >= 3 {
-            -1
-        } else {
-            1
-        };
+        *instruction += if *instruction >= 3 { -1 } else { 1 };
 
         s += 1;
     }
@@ -65,7 +64,7 @@ fn find_steps_to_exit_abnormal(instructions: &[i32], i_min: &i32, i_max: &i32) -
     s
 }
 
-fn safely_parse_usize_to_i32(n :usize) -> i32 {
+fn safely_parse_usize_to_i32(n: usize) -> i32 {
     // I should be able to do this with generics
     if n < std::i32::MAX as usize {
         n as i32
@@ -137,7 +136,11 @@ mod tests {
         let test_instr_max_length: i32 = 5;
         let expected = 10;
         assert_eq!(
-            find_steps_to_exit_abnormal(&test_instr, &test_instr_min_length, &test_instr_max_length),
+            find_steps_to_exit_abnormal(
+                &test_instr,
+                &test_instr_min_length,
+                &test_instr_max_length
+            ),
             expected
         )
     }
