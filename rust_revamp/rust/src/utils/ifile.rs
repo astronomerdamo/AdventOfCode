@@ -25,3 +25,14 @@ fn read_file(arg: &str) -> String {
 pub fn read_inputs(arg: &str) -> String {
     read_file(arg)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    #[should_panic]
+    fn panic_read_inputs() {
+        read_inputs(&"this/file/isnt/here");
+    }
+}
