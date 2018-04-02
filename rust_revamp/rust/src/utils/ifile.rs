@@ -1,29 +1,22 @@
 use std::fs::File;
+use std::io;
 use std::io::Read;
 
-/// Check and open file if present.
-fn open_file(arg: &str) -> File {
-    match File::open(arg) {
-        Ok(f) => f,
-        Err(e) => panic!("FAILURE : OPEN FILE {}", e),
-    }
-}
-
 /// Read in file from cli arg path and pass back as raw string.
+/// Bubble up errors to calling public function.
 /// Note: `File` closes when scope closes.
-fn read_file(arg: &str) -> String {
-    let mut file = open_file(&arg);
+fn read_file(arg: &str) -> Result<String, io::Error> {
     let mut buffer = String::new();
-    match file.read_to_string(&mut buffer) {
-        Ok(s) => s,
-        Err(e) => panic!("FAILURE : READ FILE {}", e),
-    };
-    buffer
+    File::open(arg)?.read_to_string(&mut buffer)?;
+    Ok(buffer)
 }
 
 /// Public function to read file from cli arg path.
 pub fn read_inputs(arg: &str) -> String {
-    read_file(arg)
+    match read_file(arg) {
+        Ok(buffer) => buffer,
+        Err(e)     => panic!("ERROR: Input file -> {}", e),
+    }
 }
 
 #[cfg(test)]
