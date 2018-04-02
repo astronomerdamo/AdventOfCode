@@ -15,7 +15,7 @@ fn read_file(arg: &str) -> Result<String, io::Error> {
 pub fn read_inputs(arg: &str) -> String {
     match read_file(arg) {
         Ok(buffer) => buffer,
-        Err(e)     => panic!("ERROR: Input file -> {}", e),
+        Err(e) => panic!("ERROR: Input file -> {}", e),
     }
 }
 
