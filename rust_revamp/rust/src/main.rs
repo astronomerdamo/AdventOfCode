@@ -1,9 +1,8 @@
-use std::env;
+// use std::env;
 
 pub mod utils;
+pub mod solutions;
 
 fn main() {
-    let arg = env::args().nth(1).expect("FAILURE : FILE PATH");
-    let parsed_args: String = utils::ifile::read_inputs(&arg);
-    println!("{:?}", parsed_args);
+    solutions::day1::main();
 }
