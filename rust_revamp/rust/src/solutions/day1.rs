@@ -1,10 +1,10 @@
-use std::env;
+use std::path::Path;
 use utils;
 
 fn load_raw_input() -> String {
-    utils::file_utils::read_inputs(
-        &env::args().nth(1).expect("FAILURE : FILE PATH")
-    )
+    let path = Path::new("./inputs/day1.txt");
+    println!("Loading inputs file: {:?}", &path);
+    utils::file_utils::read_inputs(path)
 }
 
 fn parse_input() -> Vec<usize> {
@@ -18,23 +18,30 @@ fn parse_input() -> Vec<usize> {
 
 fn shiftn(input: &[usize], n: &usize) -> Vec<usize> {
     let size = input.len();
-    input.iter().cloned().cycle().take(size + n).skip(*n).collect()
+    input
+        .iter()
+        .cloned()
+        .cycle()
+        .take(size + n)
+        .skip(*n)
+        .collect()
 }
 
 fn sum_captcha_matches(input: &[usize], n: &usize) -> usize {
-    input.iter()
+    input
+        .iter()
         .zip(shiftn(input, n).iter())
-        .map(|(&a, &b)| {if a == b {a} else {0}} )
+        .map(|(&a, &b)| if a == b { a } else { 0 })
         .sum()
 }
 
 fn run_a(input: &[usize]) -> usize {
-    sum_captcha_matches(&input, &1)
+    sum_captcha_matches(input, &1)
 }
 
 fn run_b(input: &[usize]) -> usize {
-    let halfsize = input.len()/2;
-    sum_captcha_matches(&input, &halfsize)
+    let halfsize = input.len() / 2;
+    sum_captcha_matches(input, &halfsize)
 }
 
 /// Day 1: Inverse Captcha
