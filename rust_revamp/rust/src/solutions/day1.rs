@@ -2,7 +2,7 @@ use std::env;
 use utils;
 
 fn load_raw_input() -> String {
-    utils::ifile::read_inputs(
+    utils::file_utils::read_inputs(
         &env::args().nth(1).expect("FAILURE : FILE PATH")
     )
 }
