@@ -20,6 +20,6 @@ Challenge Solutions
 
 - [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
 
-- [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/registers)
+- [Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/blob/master/rust_revamp/rust/src/solutions/day8.rs)
 
 - [Day 9: Stream Processing](http://adventofcode.com/2017/day/9) - Solution: [Scala](https://github.com/astronomerdamo/AdventOfCode/tree/master/scala/stream_processing)
