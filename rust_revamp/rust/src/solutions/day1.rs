@@ -45,7 +45,7 @@ fn run_b(input: &[usize]) -> usize {
 }
 
 /// Day 1: Inverse Captcha
-pub fn main() -> () {
+pub fn main() {
     let input: Vec<usize> = parse_input();
     println!("Day 1a: {:?}", &run_a(&input));
     println!("Day 1b: {:?}", &run_b(&input));

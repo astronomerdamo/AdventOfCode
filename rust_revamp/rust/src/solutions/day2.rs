@@ -41,7 +41,7 @@ fn run_b(input: &[Vec<usize>]) -> usize {
 }
 
 /// Day 2: Corruption Checksum
-pub fn main() -> () {
+pub fn main() {
     let input: Vec<Vec<usize>> = parse_input();
     println!("Day 2a: {:?}", &run_a(&input));
     println!("Day 2b: {:?}", &run_b(&input));
