@@ -4,6 +4,7 @@ use solutions;
 pub enum Request {
     Day1,
     Day2,
+    Day5,
     Day8,
 }
 
@@ -12,6 +13,7 @@ impl Request {
         match self {
             Request::Day1 => solutions::day1::main(),
             Request::Day2 => solutions::day2::main(),
+            Request::Day5 => solutions::day5::main(),
             Request::Day8 => solutions::day8::main(),
         }
     }
@@ -20,6 +22,7 @@ impl Request {
         let solution_request = match request_arg {
             "1" => Request::Day1,
             "2" => Request::Day2,
+            "5" => Request::Day5,
             "8" => Request::Day8,
             _ => panic!("bad choice"),
         };
