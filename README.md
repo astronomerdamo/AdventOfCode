@@ -14,7 +14,7 @@ Challenge Solutions
 
 - [Day 4: High-Entropy Passphrases](http://adventofcode.com/2017/day/4) - Solution: [Haskell](https://github.com/astronomerdamo/AdventOfCode/tree/master/haskell/high_entropy_passphrases)
 
-- [Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/twisty_trampolines)
+- [Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust_revamp/rust/src/solutions/day5.rs)
 
 - [Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/memory_reallocation)
 
