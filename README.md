@@ -16,7 +16,7 @@ Challenge Solutions
 
 - [Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/blob/master/rust_revamp/rust/src/solutions/day5.rs)
 
-- [Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/memory_reallocation)
+- [Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/blob/master/rust_revamp/rust/src/solutions/day6.rs)
 
 - [Day 7: Recursive Circus](http://adventofcode.com/2017/day/7) - Solution: [Rust](https://github.com/astronomerdamo/AdventOfCode/tree/master/rust/recursive_circus)
 
