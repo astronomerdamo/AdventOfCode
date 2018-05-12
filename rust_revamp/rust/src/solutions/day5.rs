@@ -1,5 +1,5 @@
-use std::path::Path;
 use std::collections::HashMap;
+use std::path::Path;
 use utils;
 
 fn load_raw_input() -> String {
@@ -25,12 +25,12 @@ fn run_instructions(input: &HashMap<usize, isize>, part: char) -> usize {
         let value = instructions.get_mut(&index).unwrap();
 
         index = if value.is_positive() {
-            index + value.clone() as usize
+            index + *value as usize
         } else {
-            index - value.clone().abs() as usize
+            index - value.abs() as usize
         };
 
-        *value += if *value >= 3 && part == part_b {-1} else {1};
+        *value += if *value >= 3 && part == part_b { -1 } else { 1 };
         steps += 1;
     }
     steps
@@ -58,7 +58,7 @@ mod tests {
         let mut test_input_map = HashMap::new();
         for &(k, v) in vec![(0, 0), (1, 3), (2, 0), (3, 1), (4, -3)].iter() {
             test_input_map.insert(k, v);
-        };
+        }
         test_input_map
     }
 

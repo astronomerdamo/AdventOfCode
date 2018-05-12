@@ -1,6 +1,6 @@
-use std::str::FromStr;
 use std::collections::HashMap;
 use std::path::Path;
+use std::str::FromStr;
 use utils;
 
 #[derive(Clone)]
@@ -127,10 +127,9 @@ fn run_instructions(instructions: &[Instruction]) -> (HashMap<String, i64>, i64)
     let mut max_register_value: i64 = 0;
     for instruction in instructions {
         if evaluate_predicate(
-            registers
+            *registers
                 .entry(instruction.predicate_actor.to_owned())
-                .or_insert(0)
-                .clone(),
+                .or_insert(0),
             instruction,
         ) {
             let value = registers
