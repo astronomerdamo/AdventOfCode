@@ -6,6 +6,7 @@ pub enum Request {
     Day2,
     Day5,
     Day6,
+    Day7,
     Day8,
 }
 
@@ -16,6 +17,7 @@ impl Request {
             Request::Day2 => solutions::day2::main(),
             Request::Day5 => solutions::day5::main(),
             Request::Day6 => solutions::day6::main(),
+            Request::Day7 => solutions::day7::main(),
             Request::Day8 => solutions::day8::main(),
         }
     }
@@ -26,6 +28,7 @@ impl Request {
             "2" => Request::Day2,
             "5" => Request::Day5,
             "6" => Request::Day6,
+            "7" => Request::Day7,
             "8" => Request::Day8,
             _ => panic!("bad choice"),
         };
