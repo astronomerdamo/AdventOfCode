@@ -7,6 +7,7 @@ pub enum Request {
     Year2017Day5,
     Year2017Day6,
     Year2017Day8,
+    Year2018Day1,
 }
 
 impl Request {
@@ -17,6 +18,7 @@ impl Request {
             Request::Year2017Day5 => solutions::year2017day5::main(),
             Request::Year2017Day6 => solutions::year2017day6::main(),
             Request::Year2017Day8 => solutions::year2017day8::main(),
+            Request::Year2018Day1 => solutions::year2018day1::main(),
         }
     }
 
@@ -27,6 +29,7 @@ impl Request {
             "2017-5" => Request::Year2017Day5,
             "2017-6" => Request::Year2017Day6,
             "2017-8" => Request::Year2017Day8,
+            "2018-1" => Request::Year2018Day1,
             _ => panic!("bad choice"),
         };
         solution_request.solution_runner();
