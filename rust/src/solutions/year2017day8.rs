@@ -87,7 +87,7 @@ impl Instruction {
 }
 
 fn load_raw_input() -> String {
-    let path = Path::new("./inputs/day8.txt");
+    let path = Path::new("./inputs/year2017day8.txt");
     println!("Loading inputs file: {:?}", &path);
     utils::file_utils::read_inputs(path)
 }

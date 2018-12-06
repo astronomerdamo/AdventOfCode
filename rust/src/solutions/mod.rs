@@ -1,5 +1,5 @@
-pub mod day1;
-pub mod day2;
-pub mod day5;
-pub mod day6;
-pub mod day8;
+pub mod year2017day1;
+pub mod year2017day2;
+pub mod year2017day5;
+pub mod year2017day6;
+pub mod year2017day8;

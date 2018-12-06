@@ -3,7 +3,7 @@ use std::path::Path;
 use utils;
 
 fn load_raw_input() -> String {
-    let path = Path::new("./inputs/day5.txt");
+    let path = Path::new("./inputs/year2017day5.txt");
     println!("Loading inputs file: {:?}", &path);
     utils::file_utils::read_inputs(path)
 }
