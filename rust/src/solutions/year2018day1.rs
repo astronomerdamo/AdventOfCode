@@ -1,5 +1,5 @@
-use std::path::Path;
 use std::collections::HashSet;
+use std::path::Path;
 use utils;
 
 fn load_raw_input() -> String {
@@ -16,9 +16,7 @@ fn parse_input() -> Vec<isize> {
 }
 
 fn run_a(input: &[isize]) -> isize {
-    input
-        .iter()
-        .sum()
+    input.iter().sum()
 }
 
 fn run_b(input: &[isize]) -> isize {
@@ -27,7 +25,7 @@ fn run_b(input: &[isize]) -> isize {
     let mut frequency_sum: isize = 0;
     frequencies_seen.insert(frequency_sum);
     loop {
-        frequency_sum += input.get(index%input.len()).unwrap();
+        frequency_sum += input.get(index % input.len()).unwrap();
         if frequencies_seen.contains(&frequency_sum) {
             break;
         } else {
@@ -59,7 +57,7 @@ mod tests {
     #[test]
     fn test_run_b() {
         assert_eq!(run_b(&vec![1, -1]), 0);
-        assert_eq!(run_b(&vec![3, 3, 4, -2, -4 ]), 10);
+        assert_eq!(run_b(&vec![3, 3, 4, -2, -4]), 10);
         assert_eq!(run_b(&vec![-6, 3, 8, 5, -6]), 5);
         assert_eq!(run_b(&vec![7, 7, -2, -7, -4]), 14);
         assert_eq!(run_b(&vec![1, -2, 3, 1]), 2);
