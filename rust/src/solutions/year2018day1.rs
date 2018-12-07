@@ -1,4 +1,5 @@
 use std::path::Path;
+use std::collections::HashSet;
 use utils;
 
 fn load_raw_input() -> String {
@@ -21,22 +22,20 @@ fn run_a(input: &[isize]) -> isize {
 }
 
 fn run_b(input: &[isize]) -> isize {
-    let mut frequency_loop_not_found: bool = true;
-    let mut frequencies_seen: Vec<isize>;
+    let mut frequencies_seen = HashSet::new();
     let mut index: usize = 0;
     let mut frequency_sum: isize = 0;
-    while frequency_loop_not_found {
-        let value = input.get(index).unwrap();
-        frequency_sum += value;
-        println!("{:?}", &value);
-        println!("{:?}", &frequency_sum);
-        index += 1;
-        
-        if index > 10 {
-            frequency_loop_not_found = false;
+    frequencies_seen.insert(frequency_sum);
+    loop {
+        frequency_sum += input.get(index%input.len()).unwrap();
+        if frequencies_seen.contains(&frequency_sum) {
+            break;
+        } else {
+            frequencies_seen.insert(frequency_sum);
+            index += 1;
         }
     }
-    1
+    frequency_sum
 }
 
 pub fn main() {
@@ -60,8 +59,9 @@ mod tests {
     #[test]
     fn test_run_b() {
         assert_eq!(run_b(&vec![1, -1]), 0);
-        // assert_eq!(run_b(&vec![3, 3, 4, -2, -4 ]), 10);
-        // assert_eq!(run_b(&vec![-6, 3, 8, 5, -6]), 5);
-        // assert_eq!(run_b(&vec![7, 7, -2, -7, -4]), 14);
+        assert_eq!(run_b(&vec![3, 3, 4, -2, -4 ]), 10);
+        assert_eq!(run_b(&vec![-6, 3, 8, 5, -6]), 5);
+        assert_eq!(run_b(&vec![7, 7, -2, -7, -4]), 14);
+        assert_eq!(run_b(&vec![1, -2, 3, 1]), 2);
     }
 }
